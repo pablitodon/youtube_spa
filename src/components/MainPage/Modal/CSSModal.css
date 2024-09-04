@@ -1,0 +1,7 @@
+.input-dark {
+    background-color: rgba(0, 0, 0, 0.1); /* Цвет фона */
+    color: #333; /* Цвет текста */
+    border: 1px solid #888; /* Цвет границы */
+    border-radius: 4px; /* Закругленные углы */
+    padding: 8px; /* Отступы */
+}

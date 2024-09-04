@@ -1,0 +1,39 @@
+
+.favorite-container {
+    position: relative;
+    display: flex; 
+    flex-direction: column;
+    padding: 20px;  
+    flex-wrap: wrap; 
+    padding:20px 176px;
+    align-items:center
+    
+}
+.favorite-title { 
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: rgb(11, 177, 186);
+    font-weight: bold;
+    overflow: hidden;
+    transition: color 0.3s;
+}
+
+.favorite-title:hover {
+    color: rgb(0, 150, 158);
+    /* Изменение цвета при наведении */
+}
+
+.video-item-favorite {
+    width:500px;  /* Заполнение доступного места */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+    margin-bottom: 10px; /* Добавить отступы между карточками */
+}

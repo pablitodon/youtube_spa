@@ -1,0 +1,8 @@
+.login-background {
+    background-color: #f0f2f5;
+    border: 1px solid #d1d1d1; /* Добавляет бордюр */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Добавляет тень */
+    border-radius: 8px; /* Добавляет скругление углов (по желанию) */
+    padding: 20px;
+}
+

@@ -1,0 +1,250 @@
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #f8f9fa;
+    padding: 10px 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.navbar a {
+    position: relative;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: rgb(11, 177, 186);
+    font-weight: bold;
+    overflow: hidden;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: rgb(4, 4, 88);
+    /* Цвет при наведении */
+}
+
+/* Подчеркивание только для активной ссылки */
+.navbar .active {
+    color: rgb(4, 4, 88);
+    /* Цвет активной ссылки */
+    font-weight: bold;
+    /* Жирный шрифт для активной ссылки */
+}
+
+.navbar .active::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(4, 4, 88, 0.8), rgba(4, 4, 88, 0));
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Псевдоэлемент не показывать для обычных ссылок */
+.navbar a::after {
+    content: none;
+    /* Нет подчеркивания для неактивных ссылок */
+}
+
+
+
+
+.search-header {
+    text-align: center;
+    padding: 10px 0 20px;
+}
+
+
+
+.input-with-button {
+    position: relative;
+    /* Для позиционирования кнопки */
+}
+
+.save-button {
+    position: absolute;
+    padding-top: 5px;
+    right: 0px;
+    top: 50%;
+    align-items: center;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 999;
+    /* Чтобы кнопка была поверх инпута */
+    background: none;
+    border: none;
+    color: blue;
+    transition: 0.6s;
+}
+
+.save-button:hover {
+    color: rgb(11, 216, 209);
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    /* Центрировать элементы */
+    width: 100%;
+    max-width: 600px;
+    /* Максимальная ширина, как у списка */
+    margin: 0 auto;
+    /* Центрирует контейнер по горизонтали */
+}
+
+.search-container .ant-input {
+    width: 500px;
+
+
+}
+
+.search-button {
+    height: 31px;
+    /* Фиксированная высота */
+}
+
+.control-container {
+    display: 'flex';
+        justify-content: 'space-around';
+        align-items: 'center';
+        text-align: "center";
+}
+
+
+.results-container {
+    display: flex;
+    flex-direction: column;
+    /* Выравнивание карточек по вертикали */
+    align-items: center;
+    /* Центрирует карточки по горизонтали */
+}
+
+.results-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.video-list {
+    display: flex;
+    max-width: 600px;
+    flex-direction: column;
+    align-items:center
+}
+
+.video-item {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 600px;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+}
+
+.video-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.video-item img {
+    width: 200px;
+    height: auto;
+    margin-right: 15px;
+}
+
+
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(250px, 1fr));
+    gap: 16px;
+    margin: 20px 20px;
+}
+
+.video-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; /* Убедитесь, что элементы располагаются вертикально */
+    justify-content: space-between; /* Распределяйте пространство между элементами карточки */
+    height: 100%;
+    transition: transform 0.3s;
+}
+
+.video-card:hover {
+    transform: scale(1.05);
+}
+
+.video-card-content {
+    padding: 0;
+    margin: 0;
+}
+
+.video-card-content {
+    padding: 10px;
+}
+
+.video-card-text {
+    font-size: 16px;
+    margin: 0;
+}
+
+.video-card-text p {
+    margin: 0;
+}
+
+
+.video-card:hover {
+    transform: scale(1.05);
+}
+
+.video-thumbnail {
+    width: 150px;
+    height: auto;
+    margin-right: 15px;
+    border-radius: 4px;
+}
+
+.video-card-footer {
+    margin-top: auto; /* Убедитесь, что футер всегда снизу */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Пространство между элементами футера */
+    font-size: 10px; 
+    color: #555;
+    padding: 10px 0;  /* Отступы для футера *//* Добавленный отступ для разделения от контента */
+}
+
+.video-title {
+    font-size: 16px;
+    margin: 10px 0;
+    padding: 0 10px;
+}
+
+.channel-title-views{
+    font-size: 13px;
+    color: #555;
+    margin: 0 10px 10px;
+     margin: 0px;
+}
+.channel-title{
+    font-size: 10px;
+    color: #555;
+    margin: 0 10px 10px;
+     margin: 0px;
+}
+
