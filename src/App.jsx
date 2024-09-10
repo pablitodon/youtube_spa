@@ -20,7 +20,6 @@ function App() {
                 <Route path="" element={<Navigate to="search" />} />
               </Route>
             </Route>
-          
         </Routes>
       </div>
   )
