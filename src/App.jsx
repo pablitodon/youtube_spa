@@ -10,7 +10,6 @@ import SearchPage from './components/MainPage/SearchPage/Searchpage'
 
 function App() {
   return (
-    <div>
       <div>
         <Routes>
           <Route path="/" element={<HomeLogin />} />
@@ -24,7 +23,6 @@ function App() {
           
         </Routes>
       </div>
-    </div>
   )
 }
 
