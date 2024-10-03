@@ -2,7 +2,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://react.dev/">
     <img src="images/react.png" alt="logo" width="100" height="80">
   </a>
 
