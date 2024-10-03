@@ -2,7 +2,7 @@
 <br />
 <div align="center">
   <a href="https://react.dev/">
-    <img src="./image/react.png" alt="logo" width="100" height="80">
+    <img src="./image/react.png" alt="logo" width="200" height="80">
   </a>
 
   <h3 align="center">Youtube-SPA</h3>
