@@ -43,14 +43,13 @@ const Login = () => {
         if (data) {
             if (!localStorage.getItem(`${data.email}`)) {
                 localStorage.setItem(`${data.email}`, '')
-            }else {
-            dispatch(allStartResponse(JSON.parse(localStorage.getItem(`${data.email}`))))
+            } else {
+                dispatch(allStartResponse(JSON.parse(localStorage.getItem(`${data.email}`))))
             }
-            console.log(localStorage.setItem('user', data.email));
             dispatch(fetchLoginPost(data))
         }
     }
-        
+
     return (
         <>
             <Card title="Вход" style={{ width: 400, margin: '20px auto', textAlign: 'center' }} className="login-background" >
