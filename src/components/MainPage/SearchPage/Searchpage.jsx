@@ -17,7 +17,6 @@ const SearchPage = () => {
     const { items, status } = useSelector(state => state.youtubeSearch);
 
 
-
     const handleChange = (e) => {
         setSearchTextInput(e.target.value)
     }
