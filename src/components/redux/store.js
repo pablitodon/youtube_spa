@@ -16,8 +16,6 @@ const store = configureStore({
         isVisibleModal:visibleModalSlice,
         saveRequests:saveRequestSlice,
         editDataFavorite:editDataSlice,
-      
-
     },
     devTools: process.env.NODE_ENV !== 'production',
 })

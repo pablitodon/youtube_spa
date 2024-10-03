@@ -3,6 +3,11 @@ import axios from "axios";
 
 const initialState = {}; 
 
+
+
+
+
+
 const getSearch = async ({query,maxResults,order}) => {
     try {
         const response = await axios.get(
@@ -18,13 +23,11 @@ const getSearch = async ({query,maxResults,order}) => {
               },    
             },
           )
-          console.log(response.data);
           return response.data
  
     } catch (error) {
         throw  `Error fetching data: ${error}`;
     }
- 
 };
 
 
@@ -82,12 +85,8 @@ const agoCreateTime = (date) => {
 const fetchGetSearch = createAsyncThunk(
     'youtubeSearch/getItems',
     async ({query,maxResults,order}) => {
-      console.log(`Fetching with query: ${query} maxREs: ${maxResults} ${order}`);
         const responseSearch = await getSearch({query,maxResults,order})
-        console.log(responseSearch);
-        
         const videoIds = responseSearch.items.map(item => item.id.videoId).join(',');
-
         if (videoIds.length === 0) {
           return []; 
       }
@@ -100,9 +99,7 @@ const fetchGetSearch = createAsyncThunk(
             return {...item, statistics: findItem.statistics,timeUploadedAgo:timeUploaded}
           }
         })
-      console.log(responseData);
-      
-      return responseData;
+        return responseData;
     }
 )
 
@@ -123,13 +120,11 @@ const youtubeSearchSlice = createSlice({
       })
      .addCase(fetchGetSearch.fulfilled, (state, action) => {
         state.status ='succeeded';
-        console.log(action.payload);
         state.items = action.payload
       })
      .addCase(fetchGetSearch.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
-        console.log(state.error);
       })
   },
 });
