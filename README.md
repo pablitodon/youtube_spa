@@ -150,14 +150,6 @@ VITE_SOME_URL_REACT_APP_YOUTUBE_API_URL_VIDEO_STATISTICS=https://www.googleapis.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LICENSE -->
-
-## Лицензия
-
-Распространяется по лицензии MIT. Для получения дополнительной информации см. `LICENSE.txt`.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- CONTACT -->
 
 ## Контакты
