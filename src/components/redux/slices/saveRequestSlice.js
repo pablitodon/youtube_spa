@@ -6,14 +6,11 @@ const saveRequestSlice = createSlice({
   reducers: {
     addRequest: (state, action) => {
       state.push(action.payload);
-      console.log(user);
       if (user) {
         localStorage.setItem(`${user}`, JSON.stringify(state));
       }
     },
     updateRequest: (state, action) => {
-      console.log(action.payload);
-
       const index = state.findIndex((item) => item.id === action.payload.id);
       if (index !== -1) {
         state[index] = { ...state[index], ...action.payload };

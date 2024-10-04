@@ -20,25 +20,16 @@ const schema = yup.object().shape({
     maxResults: yup.number().min(1).max(50, "Максимальные результаты должны быть от 1 до 50"),
 });
 
-
-
 const ModalComponent = () => {
-
     const dispatch = useDispatch();
     const { resultText } = useSelector(state => state.textResultSearch);
     const { isVisibleModal } = useSelector(state => state.isVisibleModal);
     const editDataFavorite = useSelector(state => state.editDataFavorite.data);
     const [maxResults, setMaxResults] = useState(editDataFavorite.maxResults || 4);
-    const saveRequests = useSelector((state) => state.saveRequests);
-    console.log(saveRequests);
-    const user = localStorage.getItem('user');
-
-
 
     const { handleSubmit, control, reset, formState: { errors } } = useForm({
         resolver: yupResolver(schema),
     });
-
 
     useEffect(() => {
         if (editDataFavorite) {
@@ -50,9 +41,7 @@ const ModalComponent = () => {
             })
             setMaxResults(editDataFavorite.maxResults)
         }
-
     }, [editDataFavorite, reset])
-
 
     const onCloseOrReset = () => {
         reset()
@@ -67,7 +56,6 @@ const ModalComponent = () => {
             dispatch(addRequest(newData));
         } else {
             dispatch(updateRequest({ ...editDataFavorite, maxResults, sortBy: data.sortBy }));
-
         }
         onCloseOrReset();
     }

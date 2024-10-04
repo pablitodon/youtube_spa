@@ -19,12 +19,6 @@ const Favorite = () => {
     const saveRequests = useSelector((state) => state.saveRequests);
 
     const user = localStorage.getItem('user');
-    console.log(user);
-
-    console.log(JSON.parse(localStorage.getItem(`${user}`)));
-    console.log(localStorage);
-
-
     useEffect(() => {
         dispatch(allStartResponse(JSON.parse(localStorage.getItem(`${user}`))))
     }, [])
