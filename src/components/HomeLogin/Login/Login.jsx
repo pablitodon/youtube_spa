@@ -43,7 +43,6 @@ const Login = () => {
         if (data) {
             if (!localStorage.getItem(`${data.email}`)) {
                 localStorage.setItem(`${data.email}`, '');
-
             } else {
                 dispatch(allStartResponse(JSON.parse(localStorage.getItem(`${data.email}`))))
             }

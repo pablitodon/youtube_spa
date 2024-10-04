@@ -20,10 +20,14 @@ const Favorite = () => {
 
     const user = localStorage.getItem('user');
     const userData = JSON.parse(localStorage.getItem(`${user}`));
+    console.log(user);
     console.log(userData);
+    console.log(localStorage);
+    console.log(saveRequests);
+
 
     useEffect(() => {
-
+        dispatch(allStartResponse(userData))
     }, [])
 
 
