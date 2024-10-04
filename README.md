@@ -2,7 +2,7 @@
 <br />
 <div align="center">
   <a href="https://react.dev/">
-    <img src="./image/react.png" alt="logo" width="200" height="80">
+    <img src="./image/react.png" alt="logo" width="250" height="80">
   </a>
 
   <h3 align="center">Youtube-SPA</h3>
@@ -69,7 +69,7 @@
 
 ### Установка
 
-# Получение бесплатного ключа API
+# Получение бесплатного ключа API для входа.
 
 Для того чтобы получить бесплатный ключ API и получить доступ к функционалу приложения, выполните следующие шаги:
 
@@ -101,6 +101,53 @@
    а `https://ваш_api_url.com` на ваш API URL.
    ```
 
+# Получение API-ключа для YouTube API
+
+Для успешного использования YouTube API вам необходимо получить API-ключ и знать основные URL для запросов.
+
+## Шаги по получению API-ключа
+
+1. **Перейдите в Google Cloud Console:**
+
+   - Откройте [Google Cloud Console](https://console.cloud.google.com/).
+
+2. **Создайте новый проект:**
+
+   - Нажмите на выпадающее меню в верхнем левом углу и выберите "Создать проект".
+   - Укажите имя проекта и нажмите "Создать".
+
+3. **Включите YouTube Data API:**
+
+   - В боковом меню выберите "API и службы" → "Библиотека".
+   - Найдите "YouTube Data API v3" и нажмите на него.
+   - Нажмите кнопку "Включить".
+
+4. **Создайте учетные данные:**
+
+   - В боковом меню выберите "API и службы" → "Учетные данные".
+   - Нажмите на "Создать учетные данные" и выберите "API-ключ".
+   - Скопируйте сгенерированный API-ключ.
+
+5. **Ограничьте использование ключа (рекомендуется):**
+   - Для повышения безопасности установите ограничения на использование ключа на базе IP-адресов или HTTP-рефереров.
+
+## Настройка `.env` файла
+
+```dotenv
+YOUTUBE_API_KEY=ваш_api_ключ
+```
+
+В этом проекте мы используем YouTube Data API для получения информации о видео и статистики. В этом разделе описано, как настроить переменные окружения.
+
+## Переменные окружения
+
+Для работы с YouTube API в вашем проекте, вам нужно задать следующие переменные окружения в вашем `.env` файле:
+
+```ini
+VITE_SOME_URL_REACT_APP_YOUTUBE_API_URL=https://www.googleapis.com/youtube/v3/search
+VITE_SOME_URL_REACT_APP_YOUTUBE_API_URL_VIDEO_STATISTICS=https://www.googleapis.com/youtube/v3/videos
+```
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
@@ -120,3 +167,4 @@
 Ссылка на проект: [GitHub](https://github.com/pablitodon/YOUTUBE_SPA)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+```

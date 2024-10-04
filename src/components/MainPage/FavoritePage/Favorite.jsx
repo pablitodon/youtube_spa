@@ -17,16 +17,17 @@ const Favorite = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const saveRequests = useSelector((state) => state.saveRequests);
-    const user = localStorage.getItem('user')
-    console.log(saveRequests);
+
+    const user = localStorage.getItem('user');
+    console.log(user);
+
+    console.log(JSON.parse(localStorage.getItem(`${user}`)));
+    console.log(localStorage);
 
 
     useEffect(() => {
-        const storedRequests = JSON.parse(localStorage.getItem(`${user}`));
-        if (storedRequests) {
-            dispatch(allStartResponse(storedRequests));
-        }
-    }, []);
+        dispatch(allStartResponse(JSON.parse(localStorage.getItem(`${user}`))))
+    }, [])
 
 
     const handleRequestExecute = (query, maxResults, order) => {

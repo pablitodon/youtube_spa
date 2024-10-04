@@ -1,23 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+const user = localStorage.getItem(`user`);
 const saveRequestSlice = createSlice({
   name: "saveRequests",
   initialState: [],
   reducers: {
     addRequest: (state, action) => {
       state.push(action.payload);
-      const user = localStorage.getItem("user");
-      if (!user) {
+      console.log(user);
+      if (user) {
         localStorage.setItem(`${user}`, JSON.stringify(state));
       }
     },
     updateRequest: (state, action) => {
+      console.log(action.payload);
+
       const index = state.findIndex((item) => item.id === action.payload.id);
       if (index !== -1) {
         state[index] = { ...state[index], ...action.payload };
-      }
-      const user = localStorage.getItem("user");
-      if (user) {
         localStorage.setItem(`${user}`, JSON.stringify(state));
       }
     },

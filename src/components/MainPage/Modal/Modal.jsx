@@ -7,11 +7,10 @@ import { toggleModal } from "../../redux/slices/visibleModalSlice";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import saveRequestSlice, { addRequest, allStartResponse, updateRequest } from "../../redux/slices/saveRequestSlice";
+import { addRequest, updateRequest } from "../../redux/slices/saveRequestSlice";
 import './CSSModal.css';
 import { v4 as uuidv4 } from 'uuid';
-import { editDataFunc, editDataQuery, resetEditData } from "../../redux/slices/editData";
-import { setResultText } from "../../redux/slices/resultTextSlice";
+import { editDataQuery, editDataType, resetEditData } from "../../redux/slices/editData";
 
 
 const schema = yup.object().shape({
@@ -23,28 +22,22 @@ const schema = yup.object().shape({
 
 
 
-
-
 const ModalComponent = () => {
-
-
 
     const dispatch = useDispatch();
     const { resultText } = useSelector(state => state.textResultSearch);
     const { isVisibleModal } = useSelector(state => state.isVisibleModal);
     const editDataFavorite = useSelector(state => state.editDataFavorite.data);
-    const [inputModal, setInputModal] = useState(resultText)
-    const [maxResults, setMaxResults] = useState(editDataFavorite.maxResults|| 4);
-    const saveRequests = useSelector(state => state.saveRequests);
-    const user = localStorage.getItem('user')
-    let saveResponse = localStorage.getItem(`${user}`)  
+    const [maxResults, setMaxResults] = useState(editDataFavorite.maxResults || 4);
+    const saveRequests = useSelector((state) => state.saveRequests);
+    console.log(saveRequests);
+    const user = localStorage.getItem('user');
 
-    
-    
+
+
     const { handleSubmit, control, reset, formState: { errors } } = useForm({
         resolver: yupResolver(schema),
     });
-
 
 
     useEffect(() => {
@@ -70,14 +63,14 @@ const ModalComponent = () => {
 
     const onSubmit = (data) => {
         if (!editDataFavorite) {
-            const newData = {...data, query: resultText, id: uuidv4(),maxResults}
-            dispatch(addRequest(newData))
+            const newData = { ...data, query: resultText, id: uuidv4(), maxResults }
+            dispatch(addRequest(newData));
         } else {
-            dispatch(updateRequest({ ...editDataFavorite,type: inputModal, maxResults, sortBy: data.sortBy }));
+            dispatch(updateRequest({ ...editDataFavorite, maxResults, sortBy: data.sortBy }));
+
         }
         onCloseOrReset();
     }
-
 
     return (
         <>
@@ -93,9 +86,9 @@ const ModalComponent = () => {
                                     Запрос:
                                 </label>
                                 {
-                                editDataFavorite ?  
-                                <Input {...field} value={editDataFavorite.query} onChange={(e) => dispatch(editDataQuery(e.target.value)) } /> :
-                                <Input {...field} value={resultText} readOnly className='input-dark' /> 
+                                    editDataFavorite ?
+                                        <Input {...field} value={editDataFavorite.query} onChange={(e) => dispatch(editDataQuery(e.target.value))} /> :
+                                        <Input {...field} value={resultText} readOnly className='input-dark' />
                                 }
                                 <p>{errors.query?.message}</p>
                             </div>
@@ -109,11 +102,13 @@ const ModalComponent = () => {
                                 <label>
                                     Введите название запроса. <span style={{ color: 'red' }}>*</span>
                                 </label>
-                                <Input {...field} placeholder="Введите название" value={field.value}
+                                <Input {...field} placeholder="Введите название" value={editDataFavorite.type}
                                     onChange={
                                         (e) => {
                                             field.onChange(e.target.value)
-                                            setInputModal(e.target.value)
+                                            if (editDataFavorite) {
+                                                dispatch(editDataType(e.target.value))
+                                            }
                                         }
                                     }
                                 />
@@ -149,7 +144,7 @@ const ModalComponent = () => {
                         render={({ field }) => (
                             <div>
                                 <label>
-                                    Максимальное количество результатов: 
+                                    Максимальное количество результатов:
                                 </label>
                                 <Slider
                                     min={1}
