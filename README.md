@@ -159,4 +159,3 @@ VITE_SOME_URL_REACT_APP_YOUTUBE_API_URL_VIDEO_STATISTICS=https://www.googleapis.
 Ссылка на проект: [GitHub](https://github.com/pablitodon/YOUTUBE_SPA)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-```
