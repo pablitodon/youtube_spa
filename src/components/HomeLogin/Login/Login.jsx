@@ -42,11 +42,11 @@ const Login = () => {
     const onSubmit = (data) => {
         if (data) {
             if (!localStorage.getItem(`${data.email}`)) {
-                localStorage.setItem(`${data.email}`, '');
-            } else {
-                dispatch(allStartResponse(JSON.parse(localStorage.getItem(`${data.email}`))))
+                localStorage.setItem(`${data.email}`, JSON.stringify([]));
             }
-            localStorage.setItem('user', `${data.email}`)
+            localStorage.setItem('user', `${data.email}`);
+            const userData = localStorage.getItem(`${data.email}`)
+            dispatch(allStartResponse(JSON.parse(userData)))
             dispatch(fetchLoginPost(data))
         }
     }

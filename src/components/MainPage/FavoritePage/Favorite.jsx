@@ -11,24 +11,19 @@ import './favorite.css'
 import { useEffect } from "react";
 import { allStartResponse } from "../../redux/slices/saveRequestSlice";
 
-
 const Favorite = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const saveRequests = useSelector((state) => state.saveRequests);
-
-    const user = localStorage.getItem('user');
-    const userData = JSON.parse(localStorage.getItem(`${user}`));
-    console.log(user);
-    console.log(userData);
-    console.log(localStorage);
-    console.log(saveRequests);
+    const emailData = localStorage.getItem('user');
+    const querys = localStorage.getItem(`${emailData}`)
 
 
     useEffect(() => {
-        dispatch(allStartResponse(userData))
-    }, [])
+        dispatch(allStartResponse(JSON.parse(querys)))
+    }, []);
+
 
 
     const handleRequestExecute = (query, maxResults, order) => {
@@ -40,8 +35,6 @@ const Favorite = () => {
             console.error("Error fetching search results:", error);
         }
     }
-
-
 
 
     const handleOpenModalRedactor = (id) => {
@@ -60,7 +53,7 @@ const Favorite = () => {
             <div className="favorite-title">
                 <div>
                     {
-                        saveRequests.map((video) => (
+                        saveRequests && saveRequests.map((video) => (
                             <div key={video.id} className="video-item-favorite">
                                 <p style={{ padding: '10px' }}>{video.type}</p>
                                 <div style={{ padding: '10px' }}>
