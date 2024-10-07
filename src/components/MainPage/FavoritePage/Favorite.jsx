@@ -19,13 +19,9 @@ const Favorite = () => {
     const emailData = localStorage.getItem('user');
     const querys = localStorage.getItem(`${emailData}`)
 
-
-
     useEffect(() => {
         dispatch(allStartResponse(JSON.parse(querys)))
     }, []);
-
-
 
     const handleRequestExecute = (query, maxResults, order) => {
         try {
