@@ -20,6 +20,7 @@ const Favorite = () => {
     const querys = localStorage.getItem(`${emailData}`)
 
 
+
     useEffect(() => {
         dispatch(allStartResponse(JSON.parse(querys)))
     }, []);
