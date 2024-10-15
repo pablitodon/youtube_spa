@@ -9,7 +9,7 @@
  <p align="center"> 
     <a href="https://github.com/pablitodon/YOUTUBE_SPA"><strong>Изучить документацию »</strong></a> 
     <br /> 
-    <a href="[https://github.com/othneildrew/Best-README-Template](https://youtube-spa-two.vercel.app/)">Посмотреть демонстрацию</a> 
+    <a href="https://youtube-spa-two.vercel.app">Посмотреть демонстрацию</a> 
     · 
     <a href="https://github.com/pablitodon/YOUTUBE_SPA/issues/new">Сообщить об ошибке</a> 
   </p> 
