@@ -19,7 +19,7 @@
 
 ## О Проекте
 
-[![Product Name Screen Shot](./image/search.png)](https://example.com)
+[![Product Name Screen Shot](./image/search.png)](https://github.com/pablitodon/YOUTUBE_SPA)
 
 🎥 **YouTube SPA** — это современное одностраничное приложение, созданное для того, чтобы предоставить пользователям простой и удобный доступ к контенту YouTube.
 
